@@ -1,2 +1,49 @@
 # Number01-Databases
 sourcecode db bd2
+<?php
+
+/**
+ * PHP MySQL Create Table Demo
+ */
+class CreateTableDemo {
+
+    /**
+     * database host
+     */
+    const DB_HOST = 'localhost';
+
+    /**
+     * database name
+     */
+    const DB_NAME = 'classicmodels';
+
+    /**
+     * database user
+     */
+    const DB_USER = 'root';
+    /*
+     * database password
+     */
+    const DB_PASSWORD = '';
+
+    /**
+     *
+     * @var type 
+     */
+    private $pdo = null;
+
+    /**
+     * Open the database connection
+     */
+    public function __construct() {
+        // open database connection
+        $conStr = sprintf("mysql:host=%s;dbname=%s", self::DB_HOST, self::DB_NAME);
+        try {
+            $this->pdo = new PDO($conStr, self::DB_USER, self::DB_PASSWORD);
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    //...
+}
